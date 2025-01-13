@@ -60,6 +60,49 @@ void fATchipapp2(void *arg)
 #endif
 }
 
+#if CONFIG_EXAMPLE_MATTER_HVAC_DEVICE
+#include <hvac_device/example_matter_hvac_device.h>
+extern uint8_t device_type;
+void fATchipdevice(void *arg)
+{
+    int argc = 0;
+    char *argv[MAX_ARGC] = {0};
+    uint8_t val = 0;
+    if (!arg) {
+        goto help;
+    } else {
+        argc = parse_param(arg, argv);
+        if (argc < 2) {
+            goto help;
+        }
+    }
+
+    if (argv[1] != NULL) {
+        if (strcmp(argv[1], "thermostat") == 0) {
+            device_type = 1;
+            example_matter_task_init();
+            return;
+        } else if (strcmp(argv[1], "fan") == 0) {
+            device_type = 2;
+            example_matter_task_init();
+            return;
+        } else if (strcmp(argv[1], "aircon") == 0) {
+            device_type = 3;
+            example_matter_task_init();
+            return;
+        }
+        else {
+            goto help;
+        }
+    }
+
+help:
+    printf("[ATMD] Usage: ATMD=device\n\r");
+    printf("              device: aircon/fan/thermostat\n\r");
+    return;
+}
+#endif
+
 void fATmattershell(void *arg)
 {
     if (arg != NULL)
@@ -79,6 +122,9 @@ log_item_t at_matter_items[] = {
     {"ATM%", fATchipapp1, {NULL, NULL}},
     {"ATM^", fATchipapp2, {NULL, NULL}},
     {"ATMS", fATmattershell, {NULL, NULL}},
+#if CONFIG_EXAMPLE_MATTER_HVAC_DEVICE
+    {"ATMD", fATchipdevice, {NULL, NULL}},
+#endif
 #endif // end of #if ATCMD_VER == ATVER_1
 #endif
 };

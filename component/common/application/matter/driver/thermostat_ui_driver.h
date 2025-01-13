@@ -9,30 +9,33 @@
 #pragma once
 
 #include <platform_stdlib.h>
-#include <pwmout_api.h>
 #include <app/util/attribute-table.h>
 
 using namespace ::chip;
 using namespace ::chip::app;
 
-class MatterFan
+class MatterThermostatUI
 {
 public:
     void SetEp(EndpointId ep);
     EndpointId GetEp(void);
 
-    void Init(PinName pin);
+    void Init(void);
     void deInit(void);
-    void setFanMode(uint8_t mode);
-    void setFanSpeedPercent(uint8_t speed);
-    chip::app::Clusters::FanControl::FanModeEnum mapPercentToMode(uint8_t percent);
-    uint8_t mapModeToPercent(uint8_t mode);
+    void UpdateDisplay(void);
+    void SetLocalTemperature(uint16_t temp);
+    void SetOccupiedCoolingSetpoint(uint16_t temp);
+    void SetOccupiedHeatingSetpoint(uint16_t temp);
+    void SetSystemMode(uint8_t mode);
+    uint16_t GetLocalTemperature(void);
+    uint16_t GetOccupiedCoolingSetpoint(void);
+    uint16_t GetOccupiedHeatingSetpoint(void);
+    uint8_t GetSystemMode(void);
 
 private:
-    pwmout_t *mPwm_obj = NULL;
-    uint8_t mMode;
-    uint8_t mPercent;
-    uint8_t mSpeed;
-    uint8_t mMaxSpeed = 10;
+    uint16_t mLocalTemperature;
+    uint16_t mOccupiedCoolingSetpoint;
+    uint16_t mOccupiedHeatingSetpoint;
+    uint8_t mSystemMode;
     EndpointId mEp;
 };
