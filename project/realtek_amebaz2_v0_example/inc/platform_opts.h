@@ -467,6 +467,9 @@
 #define DCT_BEGIN_ADDR2             (0x400000 - 0x1A000) // 0x3E6000 ~ 0x3ED000 : 24K
 #define MATTER_FACTORY_DATA         (0x3FF000)           // last 4KB of external flash - write protection is supported in this region
 
+// Ameba General Diagnostic Total Operational Hours Support
+#define CONFIG_ENABLE_AMEBA_OPHOURS             0
+
 /**
  * CONFIG_ENABLE_AMEBA_DLOG==1: to support diagnosic logs.
  * CONFIG_ENABLE_AMEBA_LFS==1: to enable Matter LittleFS.

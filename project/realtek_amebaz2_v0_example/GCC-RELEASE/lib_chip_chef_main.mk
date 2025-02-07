@@ -158,6 +158,7 @@ INCLUDES += -I$(BASEDIR)/../../../component/common/application/matter/common/blu
 INCLUDES += -I$(BASEDIR)/../../../component/common/application/matter/common/bluetooth/bt_matter_adapter
 INCLUDES += -I$(BASEDIR)/../../../component/common/application/matter/common/mbedtls
 INCLUDES += -I$(BASEDIR)/../../../component/common/application/matter/common/port
+INCLUDES += -I$(BASEDIR)/../../../component/common/application/matter/core
 
 # CHIP Include folder list
 # -------------------------------------------------------------------
@@ -232,6 +233,7 @@ SRC_CPP += $(CHIPDIR)/examples/providers/DeviceInfoProviderImpl.cpp
 
 SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/api/matter_api.cpp
 SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/api/matter_log_api.cpp
+SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/core/matter_device_utils.cpp
 SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/driver/diagnostic_logs/ameba_diagnosticlogs_provider_delegate_impl.cpp
 SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/driver/diagnostic_logs/ameba_logging_faultlog.cpp
 SRC_CPP += $(BASEDIR)/../../../component/common/application/matter/driver/diagnostic_logs/ameba_logging_insert_logs.cpp

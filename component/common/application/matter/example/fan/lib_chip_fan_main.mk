@@ -235,11 +235,13 @@ SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/example/fan/matter_
 
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/api/matter_api.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/api/matter_log_api.cpp
+SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/core/matter_device_utils.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/driver/diagnostic_logs/ameba_diagnosticlogs_provider_delegate_impl.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/driver/diagnostic_logs/ameba_logging_faultlog.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/driver/diagnostic_logs/ameba_logging_insert_logs.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/driver/diagnostic_logs/ameba_logging_redirect_handler.cpp
 SRC_CPP += $(SDKROOTDIR)/component/common/application/matter/driver/diagnostic_logs/ameba_logging_redirect_wrapper.cpp
+
 
 #lib_version
 VER_C += $(TARGET)_version.c

@@ -42,6 +42,10 @@ static void example_matter_task_thread(void *pvParameters)
 
     ChipTest();
 
+#if defined(CONFIG_ENABLE_AMEBA_OPHOURS) && (CONFIG_ENABLE_AMEBA_OPHOURS == 1)
+    matter_op_hours_wrapper();
+#endif
+
     vTaskDelete(NULL);
     return;
 }

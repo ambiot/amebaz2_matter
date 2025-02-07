@@ -9,6 +9,9 @@
 #include "diagnostic_logs/ameba_logging_faultlog.h"
 #include "diagnostic_logs/ameba_logging_redirect_handler.h"
 #endif
+#if defined(CONFIG_ENABLE_AMEBA_OPHOURS) && (CONFIG_ENABLE_AMEBA_OPHOURS == 1)
+#include <matter_device_utils.h>
+#endif
 
 #include <DeviceInfoProviderImpl.h>
 
@@ -198,6 +201,10 @@ CHIP_ERROR matter_core_init()
     {
         ConnectivityMgr().SetBLEAdvertisingEnabled(true);
     }
+
+#if defined(CONFIG_ENABLE_AMEBA_OPHOURS) && (CONFIG_ENABLE_AMEBA_OPHOURS == 1)
+    matter_op_hours();
+#endif
 
     // Start a task to run the CHIP Device event loop.
     err = PlatformMgr().StartEventLoopTask();
