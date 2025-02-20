@@ -29,7 +29,7 @@
                                                   /*!< max number of variable in module = floor (4024 / (32 + 64)) = 41 */
 
 #define DCT_BEGIN_ADDR_MATTER2  DCT_BEGIN_ADDR2
-#define MODULE_NUM2             6 
+#define MODULE_NUM2             10
 #define VARIABLE_NAME_SIZE2     32
 #define VARIABLE_VALUE_SIZE2    400 + 4           /* +4 is required, else the max variable size we can store is 396 */
                                                   /*!< max number of variable in module = floor (4024 / (32 + 400)) = 9 */
